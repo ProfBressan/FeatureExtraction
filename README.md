@@ -39,9 +39,9 @@ print('haralick --> ', featuresHaralick)<br />
 <br />
 ########### Deep Features  <br />
 from deep import Deep<br />
-deep1 = Deep('img.jpg', 'Xception')<br />
-featuresDeep1 = deep1.extractionFeatures()<br />
-print(featuresDeep1)<br />
+deep = Deep('Xception')<br />
+featuresDeep = deep.extractionFeatures('img.jpg')<br />
+print(featuresDeep)<br />
 ####### Opition - DEEP:<br />
 --- Xception<br />
 --- VGG16<br />
