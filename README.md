@@ -1,6 +1,8 @@
 # FeatureExtraction
 Feature extraction - Image Processing
 
+- Tests performed on Ubuntu 18.04.3 LTS with Python 3.6.8 
+
 # Install libraries
 - OpenCV
 - Keras
