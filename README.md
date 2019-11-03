@@ -1,13 +1,13 @@
 # FeatureExtraction
 Feature extraction - Image Processing
 
-- Tests performed on Ubuntu 18.04.3 LTS with Python 3.6.8 
+- Tests performed on Ubuntu 18.04.3 LTS with Python (3.6.8) 
 
 # Install libraries
-- OpenCV
-- Keras
-- mahotas
-- numpy
+- OpenCV (4.0.1)
+- Keras (2.3.1) 
+- mahotas (1.4.8)
+- numpy (1.17.1)
 
 
 # Use desired code for extraction
