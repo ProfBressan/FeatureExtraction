@@ -12,35 +12,40 @@ Feature extraction - Image Processing
 
 # Use desired code for extraction
 ########### LBP <br />
-from extractor.lbp import LBP<br />
+import extractionMethods<br />
+from extractionMethods.lbp import LBP<br />
 lbp = LBP()<br />
 featuresLBP = lbp.extractionFeatures('img.jpg')<br />
 print('LBP --> ', featuresLBP)<br />
 ########### ########### ########### <br />
 <br />
 ########### Surf<br />
-from extractor.surf import Surf<br />
+import extractionMethods<br />
+from extractionMethods.surf import Surf<br />
 surf = Surf()<br />
 featuresSurf= surf.extractionFeatures('img.jpg')<br />
 print('Surf --> ', featuresSurf)<br />
 ########### ########### ########### <br />
 <br />
 ########### Zernike<br />
-from extractor.zernike import Zernike<br />
+import extractionMethods<br />
+from extractionMethods.zernike import Zernike<br />
 zernike = Zernike()<br />
 featuresZernike= zernike.extractionFeatures('img.jpg')<br />
 print('Zernike --> ', featuresZernike)<br />
 ########### ########### ########### <br />
 <br />
 ########### Haralick <br />
-from extractor.haralick import Haralick<br />
+import extractionMethods<br />
+from extractionMethods.haralick import Haralick<br />
 haralick = Haralick()<br />
 featuresHaralick = haralick.extractionFeatures('img.jpg')<br />
 print('haralick --> ', featuresHaralick)<br />
 ########### ########### ###########  <br />
 <br />
 ########### Deep Features  <br />
-from extractor.deep import Deep<br />
+import extractionMethods<br />
+from extractionMethods.deep import Deep<br />
 deep = Deep('Xception')<br />
 featuresDeep = deep.extractionFeatures('img.jpg')<br />
 print(featuresDeep)<br />
