@@ -66,7 +66,7 @@ print(featuresDeep)<br />
 
 
 # Extract from multiple simultaneous images and generate one file (.arff)
-- Orgnization dataset<br />
+- Dataset organization<br />
 -- Dir_dataset<br />
 ------ Dir_class1<br />
 ------------- img01.jpg<br />
