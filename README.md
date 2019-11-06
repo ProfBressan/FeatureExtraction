@@ -12,40 +12,35 @@ Feature extraction - Image Processing
 
 # Use desired code for extraction
 ########### LBP <br />
-import extractionMethods<br />
-from extractionMethods.lbp import LBP<br />
+from extraction.lbp import LBP<br />
 lbp = LBP()<br />
 featuresLBP = lbp.extractionFeatures('img.jpg')<br />
 print('LBP --> ', featuresLBP)<br />
 ########### ########### ########### <br />
 <br />
 ########### Surf<br />
-import extractionMethods<br />
-from extractionMethods.surf import Surf<br />
+from extraction.surf import Surf<br />
 surf = Surf()<br />
 featuresSurf= surf.extractionFeatures('img.jpg')<br />
 print('Surf --> ', featuresSurf)<br />
 ########### ########### ########### <br />
 <br />
 ########### Zernike<br />
-import extractionMethods<br />
-from extractionMethods.zernike import Zernike<br />
+from extraction.zernike import Zernike<br />
 zernike = Zernike()<br />
 featuresZernike= zernike.extractionFeatures('img.jpg')<br />
 print('Zernike --> ', featuresZernike)<br />
 ########### ########### ########### <br />
 <br />
 ########### Haralick <br />
-import extractionMethods<br />
-from extractionMethods.haralick import Haralick<br />
+from extraction.haralick import Haralick<br />
 haralick = Haralick()<br />
 featuresHaralick = haralick.extractionFeatures('img.jpg')<br />
 print('haralick --> ', featuresHaralick)<br />
 ########### ########### ###########  <br />
 <br />
 ########### Deep Features  <br />
-import extractionMethods<br />
-from extractionMethods.deep import Deep<br />
+from extraction.deep import Deep<br />
 deep = Deep('Xception')<br />
 featuresDeep = deep.extractionFeatures('img.jpg')<br />
 print(featuresDeep)<br />
@@ -96,10 +91,10 @@ print(featuresDeep)<br />
 -- Name desired method to deep learning<br />
 <br />
 
-python3 extractorFeatures.py -d dataset -m lbp <br />
-python3 extractorFeatures.py -d dataset -m surf <br />
-python3 extractorFeatures.py -d dataset -m zernike <br />
-python3 extractorFeatures.py -d dataset -m haralick <br />
+python3 extractorFeatures.py -d dataset -m lbp<br />
+python3 extractorFeatures.py -d dataset -m surf<br />
+python3 extractorFeatures.py -d dataset -m zernike<br />
+python3 extractorFeatures.py -d dataset -m haralick<br />
 python3 extractorFeatures.py -d dataset -m deep -n Xception<br />
 python3 extractorFeatures.py -d dataset -m deep -n VGG16<br />
 python3 extractorFeatures.py -d dataset -m deep -n VGG19<br />

@@ -5,7 +5,7 @@ import re
 import cv2 
 import argparse
 import numpy
-import classes
+import extraction
 
 
 def loadsClasses(diretorio):
@@ -51,7 +51,6 @@ def extract(diretorio):
             for k in range(len(features)):
                 arq.write(str(features[k]))
                 arq.write(', ')
-            print(len(features), ',', classe[len(classe)-2] ,'\n')
             arq.write(classe[len(classe)-2])
             arq.write('\n')
         extract(i + '/')
@@ -73,29 +72,34 @@ loadsClasses(directoryImagesIn)
 nameClasses = set(listClass)
 deepName = args["deepName"] 
 
+if ( os.name == 'nt'): 
+    print('windows ')
+else:
+    print('Linux ')
+
 if (method == 'lbp'):
-    from classes.lbp import LBP
+    from extraction.lbp import LBP
     extractor = LBP()
     arq = open('lbp.arff', 'w')
     header(352)
     extract(directoryImagesIn)
     finish()
 elif (method == 'surf'):
-    from classes.surf import Surf
+    from extraction.surf import Surf
     extractor = Surf()
     arq = open('surf.arff', 'w')
     header(70)
     extract(directoryImagesIn)
     finish()
 elif (method == 'zernike'):
-    from classes.zernike import Zernike
+    from extraction.zernike import Zernike
     extractor = Zernike()
     arq = open('zernike.arff', 'w')
     header(72)
     extract(directoryImagesIn)
     finish()
 elif (method == 'haralick'):
-    from extractor.haralick import Haralick
+    from extraction.haralick import Haralick
     extractor = Haralick()
     arq = open('haralick.arff', 'w')
     header(13)
@@ -103,7 +107,7 @@ elif (method == 'haralick'):
     finish()
 
 elif (method == 'deep'):
-    from classes.deep import Deep
+    from extraction.deep import Deep
     method = method + '_'+ deepName
     extractor = Deep(deepName)
     arq = open('deep_'+deepName+'.arff', 'w')

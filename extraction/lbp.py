@@ -2,15 +2,22 @@
 """
 Author       : Rafael Staiger Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com / (43)99924-9391
+Contact      : profbressan@gmail.com 
 
 Description  : Features Extraction - LBP (Local Binary Part)
-dependencies : mahotas | OpenCV
+Dependencies : mahotas | OpenCV
+Configuration: radius = 2 | n_points = 12 --> features = 352
 References   :
     ----------
         Gray Scale and Rotation Invariant Texture Classification with Local Binary Patterns
         Ojala, T. Pietikainen, M. Maenpaa, T. Lecture Notes in Computer Science (Springer)
         2000, ISSU 1842, pages 404-420
+
+Using        : 
+	from lbp import LBP
+	lbp = LBP()
+	featuresLBP = lbp.extractionFeatures('img.jpg')
+	print('LBP --> ', featuresLBP)
 """
 import cv2
 from mahotas.features import lbp
