@@ -3,7 +3,7 @@
 """
 Author       : Rafael Staiger Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com / (43)99924-9391
+Contact      : profbressan@gmail.com 
 
 Description  : Features Extraction - Zernike Moments
 dependencies : mahotas | OpenCV
