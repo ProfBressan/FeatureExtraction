@@ -13,6 +13,15 @@ def loadsClasses(diretorio):
         if re.search('\\.jpg\\b', i, re.IGNORECASE) or re.search('\\.png\\b', i, re.IGNORECASE) or re.search('\\.jpeg\\b', i, re.IGNORECASE):
             imagePath = i
             classe = imagePath.split("/")
+            classe[len(classe)-2] = classe[len(classe)-2].replace(',', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('.', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('ã', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('-', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('(', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace(')', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace(' ', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('_', '')
+
             listClass.append(classe[len(classe)-2])
         loadsClasses(i + '/')
 
@@ -51,6 +60,14 @@ def extract(diretorio):
             for k in range(len(features)):
                 arq.write(str(features[k]))
                 arq.write(', ')
+            classe[len(classe)-2] = classe[len(classe)-2].replace(',', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('.', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('ã', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('-', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('(', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace(')', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace(' ', '')
+            classe[len(classe)-2] = classe[len(classe)-2].replace('_', '')
             arq.write(classe[len(classe)-2])
             arq.write('\n')
         extract(i + '/')
