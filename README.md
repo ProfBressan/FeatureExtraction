@@ -4,12 +4,10 @@ Feature extraction - Image Processing
 - Tests performed on Ubuntu 18.04.3 LTS with Python (3.6.8) 
 
 # Install libraries
-- OpenCV (4.0.1)
 - Keras (2.3.1) 
 - TensorFlow (2.0.0)
 - mahotas (1.4.8)
 - numpy (1.17.1)
-
 
 # Use desired code for extraction
 ########### LBP - Local Binary Part <br />
