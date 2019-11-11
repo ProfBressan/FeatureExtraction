@@ -3,13 +3,14 @@
 """
 Author       : Rafael Staiger Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com 
+Contact      : profbressan@gmail.com / (43)99924-9391
 
 Description  : Features Extraction - Zernike Moments
 dependencies : mahotas | OpenCV
 """
 import mahotas as mt
-import cv2
+import numpy as np
+from PIL import Image
 
 class Zernike:
 	def __init__(self):
@@ -23,9 +24,10 @@ class Zernike:
 	def extractionFeatures(self, image_path):
 		self.image_path = image_path
 		try:
-			image = cv2.imread(self.image_path)
-			imgGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-			Features = mt.features.zernike(imgGray,self.radius,self.degree)
+			img = Image.open(self.image_path)
+			imgRGB = img.convert('RGB')
+			imgGray = imgRGB.convert('L')
+			Features = mt.features.zernike(np.asanyarray(imgGray),self.radius,self.degree)
 			return Features
 		except Exception as e:
 			print('\n################# (Zernike) - Error Reading Image!  #################\n', e ,'\n')

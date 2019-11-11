@@ -2,6 +2,9 @@ python3 extractorFeatures.py -d dataset -m lbp
 python3 extractorFeatures.py -d dataset -m surf
 python3 extractorFeatures.py -d dataset -m zernike
 python3 extractorFeatures.py -d dataset -m haralick
+python3 extractorFeatures.py -d dataset -m fom
+python3 extractorFeatures.py -d dataset -m fomc
+python3 extractorFeatures.py -d dataset -m gch
 python3 extractorFeatures.py -d dataset -m deep -n Xception
 python3 extractorFeatures.py -d dataset -m deep -n VGG16
 python3 extractorFeatures.py -d dataset -m deep -n VGG19

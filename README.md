@@ -11,36 +11,57 @@ Feature extraction - Image Processing
 
 
 # Use desired code for extraction
-########### LBP <br />
-from extraction.lbp import LBP<br />
+########### LBP - Local Binary Part <br />
+from extractor.lbp import LBP<br />
 lbp = LBP()<br />
 featuresLBP = lbp.extractionFeatures('img.jpg')<br />
 print('LBP --> ', featuresLBP)<br />
 ########### ########### ########### <br />
 <br />
 ########### Surf<br />
-from extraction.surf import Surf<br />
+from extractor.surf import Surf<br />
 surf = Surf()<br />
 featuresSurf= surf.extractionFeatures('img.jpg')<br />
 print('Surf --> ', featuresSurf)<br />
 ########### ########### ########### <br />
 <br />
 ########### Zernike<br />
-from extraction.zernike import Zernike<br />
+from extractor.zernike import Zernike<br />
 zernike = Zernike()<br />
 featuresZernike= zernike.extractionFeatures('img.jpg')<br />
 print('Zernike --> ', featuresZernike)<br />
 ########### ########### ########### <br />
 <br />
 ########### Haralick <br />
-from extraction.haralick import Haralick<br />
+from extractor.haralick import Haralick<br />
 haralick = Haralick()<br />
 featuresHaralick = haralick.extractionFeatures('img.jpg')<br />
 print('haralick --> ', featuresHaralick)<br />
 ########### ########### ###########  <br />
 <br />
+########### FOM - First Order Measures (Gray)<br />
+from extractor.fom import FOM<br />
+fom = FOM()<br />
+featuresFOM = fom.extractionFeatures('img.jpg')<br />
+print('FOM (Gray) --> ', featuresFOM)<br />
+########### ########### ###########  <br />
+<br />
+########### FOM - First Order Measures (Color)<br />
+from extractor.fom import FOM<br />
+fom = FOM()<br />
+featuresFOM = fom.extractionFeaturesColor('img.jpg')<br />
+print('FOM (Color) --> ', featuresFOM)<br />
+########### ########### ###########  <br />
+<br />
+########### GCH - Global Color Histogram<br />
+from extractor.gch import GCH<br />
+gch = GCH()<br />
+featuresGCH = gch.extractionFeatures('img.jpg')<br />
+print('GCH --> ', featuresGCH)<br />
+########### ########### ###########  <br />
+<br />
 ########### Deep Features  <br />
-from extraction.deep import Deep<br />
+from extractor.deep import Deep<br />
 deep = Deep('Xception')<br />
 featuresDeep = deep.extractionFeatures('img.jpg')<br />
 print(featuresDeep)<br />
@@ -66,7 +87,7 @@ print(featuresDeep)<br />
 
 
 # Extract from multiple simultaneous images and generate one file (.arff)
-- Dataset organization<br />
+- Orgnization dataset<br />
 -- Dir_dataset<br />
 ------ Dir_class1<br />
 ------------- img01.jpg<br />
@@ -91,25 +112,28 @@ print(featuresDeep)<br />
 -- Name desired method to deep learning<br />
 <br />
 
-python3 extractorFeatures.py -d dataset -m lbp<br />
-python3 extractorFeatures.py -d dataset -m surf<br />
-python3 extractorFeatures.py -d dataset -m zernike<br />
-python3 extractorFeatures.py -d dataset -m haralick<br />
-python3 extractorFeatures.py -d dataset -m deep -n Xception<br />
-python3 extractorFeatures.py -d dataset -m deep -n VGG16<br />
-python3 extractorFeatures.py -d dataset -m deep -n VGG19<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet50<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet101<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet152<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet50V2<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet101V2<br />
-python3 extractorFeatures.py -d dataset -m deep -n ResNet152V2<br />
-python3 extractorFeatures.py -d dataset -m deep -n InceptionV3<br />
-python3 extractorFeatures.py -d dataset -m deep -n InceptionResNetV2<br />
-python3 extractorFeatures.py -d dataset -m deep -n MobileNet<br />
-python3 extractorFeatures.py -d dataset -m deep -n MobileNetV2<br />
-python3 extractorFeatures.py -d dataset -m deep -n DenseNet121<br />
-python3 extractorFeatures.py -d dataset -m deep -n DenseNet169<br />
-python3 extractorFeatures.py -d dataset -m deep -n DenseNet201<br />
-python3 extractorFeatures.py -d dataset -m deep -n NASNetMobile<br />
-python3 extractorFeatures.py -d dataset -m deep -n NASNetLarge<br />
+python3 extractor.py -d dataset -m lbp <br />
+python3 extractor.py -d dataset -m surf <br />
+python3 extractor.py -d dataset -m zernike <br />
+python3 extractor.py -d dataset -m haralick <br />
+python3 extractor.py -d dataset -m fom <br />
+python3 extractor.py -d dataset -m fomc <br />
+python3 extractor.py -d dataset -m gch <br />
+python3 extractor.py -d dataset -m deep -n Xception<br />
+python3 extractor.py -d dataset -m deep -n VGG16<br />
+python3 extractor.py -d dataset -m deep -n VGG19<br />
+python3 extractor.py -d dataset -m deep -n ResNet50<br />
+python3 extractor.py -d dataset -m deep -n ResNet101<br />
+python3 extractor.py -d dataset -m deep -n ResNet152<br />
+python3 extractor.py -d dataset -m deep -n ResNet50V2<br />
+python3 extractor.py -d dataset -m deep -n ResNet101V2<br />
+python3 extractor.py -d dataset -m deep -n ResNet152V2<br />
+python3 extractor.py -d dataset -m deep -n InceptionV3<br />
+python3 extractor.py -d dataset -m deep -n InceptionResNetV2<br />
+python3 extractor.py -d dataset -m deep -n MobileNet<br />
+python3 extractor.py -d dataset -m deep -n MobileNetV2<br />
+python3 extractor.py -d dataset -m deep -n DenseNet121<br />
+python3 extractor.py -d dataset -m deep -n DenseNet169<br />
+python3 extractor.py -d dataset -m deep -n DenseNet201<br />
+python3 extractor.py -d dataset -m deep -n NASNetMobile<br />
+python3 extractor.py -d dataset -m deep -n NASNetLarge<br />

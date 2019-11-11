@@ -19,8 +19,9 @@ Using        :
 	featuresLBP = lbp.extractionFeatures('img.jpg')
 	print('LBP --> ', featuresLBP)
 """
-import cv2
 from mahotas.features import lbp
+from PIL import Image
+import numpy as np
 
 class LBP:
 	def __init__(self):
@@ -28,7 +29,6 @@ class LBP:
 		self.radius = 2
 		self.n_points = 12
 		self.image_path = ""
-
 	def setRadius(self, radius):
 		if (radius>0 and radius<5):
 			self.radius = radius
@@ -46,9 +46,10 @@ class LBP:
 	def extractionFeatures(self, image_path):
 		self.image_path = image_path
 		try:
-			image = cv2.imread(self.image_path)
-			imgGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-			arrayFeatures = lbp(imgGray, self.radius, self.n_points)
+			img = Image.open(self.image_path)
+			imgRGB = img.convert('RGB')
+			imgGray = imgRGB.convert('L')
+			arrayFeatures = lbp(np.asanyarray(imgGray), self.radius, self.n_points)
 			return arrayFeatures
 		except Exception as e:
 			print('\n################# (LBP) - Error Reading Image!  #################\n', e)

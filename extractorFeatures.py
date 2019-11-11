@@ -12,16 +12,9 @@ def loadsClasses(diretorio):
     for i in glob.glob( diretorio + '/*'):      
         if re.search('\\.jpg\\b', i, re.IGNORECASE) or re.search('\\.png\\b', i, re.IGNORECASE) or re.search('\\.jpeg\\b', i, re.IGNORECASE):
             imagePath = i
+            arqOrder.write(i)
+            arqOrder.write('\n')
             classe = imagePath.split("/")
-            classe[len(classe)-2] = classe[len(classe)-2].replace(',', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('.', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('ã', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('-', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('(', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace(')', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace(' ', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('_', '')
-
             listClass.append(classe[len(classe)-2])
         loadsClasses(i + '/')
 
@@ -35,7 +28,7 @@ def header(atribute):
         arq.write(str(i))
         arq.write(' REAL\n')
     arq.write('@ATTRIBUTE class {')
-    cont = 1;
+    cont = 1
     for c in nameClasses:
             arq.write(c)
             if (cont != len(nameClasses)):
@@ -56,18 +49,13 @@ def extract(diretorio):
             print('------------------> ', imagePath)
             classe = imagePath.split("/")
             features = []
-            features = extractor.extractionFeatures(imagePath)
+            if(method == 'fomc'):
+                features = extractor.extractionFeaturesColor(imagePath)
+            else:
+                features = extractor.extractionFeatures(imagePath)
             for k in range(len(features)):
                 arq.write(str(features[k]))
                 arq.write(', ')
-            classe[len(classe)-2] = classe[len(classe)-2].replace(',', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('.', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('ã', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('-', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('(', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace(')', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace(' ', '')
-            classe[len(classe)-2] = classe[len(classe)-2].replace('_', '')
             arq.write(classe[len(classe)-2])
             arq.write('\n')
         extract(i + '/')
@@ -85,20 +73,37 @@ args = vars(ap.parse_args())
 directoryImagesIn = args["dataset"]
 method = args["method"]
 listClass = []
+arqOrder = open('OrderOfImages.txt', 'w')
 loadsClasses(directoryImagesIn)
 nameClasses = set(listClass)
+arqOrder.close()
 deepName = args["deepName"] 
-
+systemT = ''
 if ( os.name == 'nt'): 
-    print('windows ')
+    systemT = 'windows'
 else:
-    print('Linux ')
+    systemT = 'Linux '
 
+print('\n#################### ', method, ' ####################\n' )
 if (method == 'lbp'):
     from extraction.lbp import LBP
     extractor = LBP()
     arq = open('lbp.arff', 'w')
     header(352)
+    extract(directoryImagesIn)
+    finish()
+elif (method == 'fom'):
+    from extraction.fom import FOM
+    extractor = FOM()
+    arq = open('fom.arff', 'w')
+    header(8)
+    extract(directoryImagesIn)
+    finish()
+elif (method == 'fomc'):
+    from extraction.fom import FOM
+    extractor = FOM()
+    arq = open('fomc.arff', 'w')
+    header(24)
     extract(directoryImagesIn)
     finish()
 elif (method == 'surf'):
@@ -122,8 +127,15 @@ elif (method == 'haralick'):
     header(13)
     extract(directoryImagesIn)
     finish()
-
+elif (method == 'gch'):
+    from extraction.gch import GCH
+    extractor = GCH()
+    arq = open('GCH.arff', 'w')
+    header(30)
+    extract(directoryImagesIn)
+    finish()
 elif (method == 'deep'):
+    print('******************** ', deepName, '\n' )
     from extraction.deep import Deep
     method = method + '_'+ deepName
     extractor = Deep(deepName)

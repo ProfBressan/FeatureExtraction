@@ -3,7 +3,7 @@
 """
 Author       : Rafael Staiger Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com 
+Contact      : profbressan@gmail.com / (43)99924-9391
 
 Description  : Features Extraction - Surf
 dependencies : mahotas | OpenCV
@@ -14,7 +14,8 @@ References   :
     No. 3, pp. 346--359, 2008
 """
 from mahotas.features import surf
-import cv2
+from PIL import Image
+import numpy as np
 
 class Surf:
 	def __init__(self):
@@ -28,9 +29,10 @@ class Surf:
 	def extractionFeatures(self, image_path):
 		try:
 			self.image_path = image_path
-			image = cv2.imread(self.image_path)
-			imgGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-			textures = surf.surf(imgGray)
+			img = Image.open(self.image_path)
+			imgRGB = img.convert('RGB')
+			imgGray = imgRGB.convert('L')
+			textures = surf.surf(np.asanyarray(imgGray))
 			vFeatures = textures.mean(axis=0)
 			return vFeatures
 		except Exception as e:
