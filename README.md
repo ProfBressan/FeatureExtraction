@@ -1,7 +1,43 @@
-# FeatureExtraction
-Feature extraction - Image Processing
+# Introdution
 
-The FeatureExtraction project is dedicated to extracting features that represent an image. We bring together leading state of the art extractors.
+The FeatureExtraction project is dedicated to extracting features from images. We have brought together the main last generation pullers.<br />
+
+You can extract resources by using the following approaches:<br />
+
+1. LBP (Local Binary Part) 
+- Extraction            : 352 features 
+- Default Configuration : radius = 2 | n_points = 12
+- Reference             : OJALA, Timo; PIETIKÄINEN, Matti; MÄENPÄÄ, Topi. Gray scale and rotation invariant texture classification with local binary patterns. In: European Conference on Computer Vision. Springer, Berlin, Heidelberg, 2000. p. 404-420. 
+  
+2. FOM (First Order Measures)
+- Extraction            : 8 features (gray) | 24 features (color)
+- First Order Measures  : 1 - Average |  2 - Mode | 3 - Variation | 4 - Standard deviation | 5 - Dispersal | 6 Population sample standard deviation | 7 - Energy | 8 - Entropy
+- Reference             : IRONS, James R.; PETERSEN, Gary W. Texture transforms of remote sensing data. Remote Sensing of Environment, v. 11, p. 359-370, 1981.
+
+3. Surf (Speeded up robust features)
+- Extraction            : 70 features
+- Default Configuration : nr_octaves=4 | nr_scales=6 | initial_step_size=1 | threshold=0.1 | max_points=1024 |  descriptor_only=False
+- Reference             : BAY, Herbert; TUYTELAARS, Tinne; VAN GOOL, Luc. Surf: Speeded up robust features. In: European conference on computer vision. Springer, Berlin, Heidelberg, 2006. p. 404-417.
+
+4. Zernike
+- Extraction            : 72 features
+- Default Configuration : radius = 15 | degree = 8
+- Reference             : TEAGUE, Michael Reed. Image analysis via the general theory of moments. JOSA, v. 70, n. 8, p. 920-930, 1980.
+
+5. Haralick 
+- Extraction            : 13 features
+- Measures              : AngularSecondMoment | Contrast | Correlation | SumofSquares:Variance | InverseDifferenceMoment | SumAverage | SumVariance | SumEntropy | Entropy | DifferenceVariance | DifferenceEntropy | InformationMeasureofCorrelation1 | InformationMeasureofCorrelation2
+- Reference             : HARALICK, Robert M.; SHANMUGAM, Karthikeyan; DINSTEIN, Its' Hak. Textural features for image classification. IEEE Transactions on systems, man, and cybernetics, n. 6, p. 610-621, 1973.
+
+6. GCH (Global Color Histogram)
+- Extraction            : 30 features
+- Default Configuration : bins = 10 (bins for chanel)
+- Reference             : STRICKER, Markus Andreas; ORENGO, Markus. Similarity of color images. In: Storage and retrieval for image and video databases III. International Society for Optics and Photonics, 1995. p. 381-392.
+
+7. DEEP Transfer Learning
+- Extraction            : Depends on the approach. (512 to 4032 features)
+- Approach              : Xception | VGG16 | VGG19 | ResNet50 | ResNet101 | ResNet152 | ResNet50V2 | ResNet101V2 | ResNet152V2 | InceptionV3 | InceptionResNetV2 | MobileNet | MobileNetV2 | DenseNet121 | DenseNet169 | DenseNet201 | NASNetMobile | NASNetLarge 
+- Reference             :
 
 # Requirements
 - Tests performed on Ubuntu 18.04.3 LTS with Python (3.6.8) 
@@ -14,10 +50,14 @@ The FeatureExtraction project is dedicated to extracting features that represent
 
 # Use desired code for extraction
 ########### LBP - Local Binary Part <br />
-from extractor.lbp import LBP<br />
-lbp = LBP()<br />
-featuresLBP = lbp.extractionFeatures('img.jpg')<br />
-print('LBP --> ', featuresLBP)<br />
+`from extractor.lbp import LBP`
+<br />
+`lbp = LBP()`
+<br />
+`featuresLBP = lbp.extractionFeatures('img.jpg')`
+<br />
+`print('LBP --> ', featuresLBP)`
+<br />
 ########### ########### ########### <br />
 <br />
 ########### Surf<br />
