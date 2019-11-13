@@ -49,7 +49,7 @@ You can extract resources by using the following approaches:<br />
 - numpy (1.17.1)
 
 # Use desired code for extraction
-########### LBP - Local Binary Part <br />
+- LBP (Local Binary Part)<br />
 `from extractor.lbp import LBP`
 <br />
 `lbp = LBP()`
@@ -58,9 +58,9 @@ You can extract resources by using the following approaches:<br />
 <br />
 `print('LBP --> ', featuresLBP)`
 <br />
-########### ########### ########### <br />
 <br />
-########### Surf<br />
+<br />
+- Surf<br />
 from extractor.surf import Surf<br />
 surf = Surf()<br />
 featuresSurf= surf.extractionFeatures('img.jpg')<br />
