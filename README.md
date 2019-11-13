@@ -151,28 +151,52 @@ Opition - DEEP:<br />
 -- Name desired method to deep learning<br />
 <br />
 
-python3 extractor.py -d dataset -m lbp <br />
-python3 extractor.py -d dataset -m surf <br />
-python3 extractor.py -d dataset -m zernike <br />
-python3 extractor.py -d dataset -m haralick <br />
-python3 extractor.py -d dataset -m fom <br />
-python3 extractor.py -d dataset -m fomc <br />
-python3 extractor.py -d dataset -m gch <br />
-python3 extractor.py -d dataset -m deep -n Xception<br />
-python3 extractor.py -d dataset -m deep -n VGG16<br />
-python3 extractor.py -d dataset -m deep -n VGG19<br />
-python3 extractor.py -d dataset -m deep -n ResNet50<br />
-python3 extractor.py -d dataset -m deep -n ResNet101<br />
-python3 extractor.py -d dataset -m deep -n ResNet152<br />
-python3 extractor.py -d dataset -m deep -n ResNet50V2<br />
-python3 extractor.py -d dataset -m deep -n ResNet101V2<br />
-python3 extractor.py -d dataset -m deep -n ResNet152V2<br />
-python3 extractor.py -d dataset -m deep -n InceptionV3<br />
-python3 extractor.py -d dataset -m deep -n InceptionResNetV2<br />
-python3 extractor.py -d dataset -m deep -n MobileNet<br />
-python3 extractor.py -d dataset -m deep -n MobileNetV2<br />
-python3 extractor.py -d dataset -m deep -n DenseNet121<br />
-python3 extractor.py -d dataset -m deep -n DenseNet169<br />
-python3 extractor.py -d dataset -m deep -n DenseNet201<br />
-python3 extractor.py -d dataset -m deep -n NASNetMobile<br />
-python3 extractor.py -d dataset -m deep -n NASNetLarge<br />
+`python3 extractor.py -d dataset -m lbp`
+
+`python3 extractor.py -d dataset -m surf`
+
+`python3 extractor.py -d dataset -m zernike`
+
+`python3 extractor.py -d dataset -m haralick`
+
+`python3 extractor.py -d dataset -m fom`
+
+`python3 extractor.py -d dataset -m fomc`
+
+`python3 extractor.py -d dataset -m gch`
+
+`python3 extractor.py -d dataset -m deep -n Xception`
+
+`python3 extractor.py -d dataset -m deep -n VGG16`
+
+`python3 extractor.py -d dataset -m deep -n VGG19`
+
+`python3 extractor.py -d dataset -m deep -n ResNet50`
+
+`python3 extractor.py -d dataset -m deep -n ResNet101`
+
+`python3 extractor.py -d dataset -m deep -n ResNet152`
+
+`python3 extractor.py -d dataset -m deep -n ResNet50V2`
+
+`python3 extractor.py -d dataset -m deep -n ResNet101V2`
+
+`python3 extractor.py -d dataset -m deep -n ResNet152V2`
+
+`python3 extractor.py -d dataset -m deep -n InceptionV3`
+
+`python3 extractor.py -d dataset -m deep -n InceptionResNetV2`
+
+`python3 extractor.py -d dataset -m deep -n MobileNet`
+
+`python3 extractor.py -d dataset -m deep -n MobileNetV2`
+
+`python3 extractor.py -d dataset -m deep -n DenseNet121`
+
+`python3 extractor.py -d dataset -m deep -n DenseNet169`
+
+`python3 extractor.py -d dataset -m deep -n DenseNet201`
+
+`python3 extractor.py -d dataset -m deep -n NASNetMobile`
+
+`python3 extractor.py -d dataset -m deep -n NASNetLarge`
