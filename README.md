@@ -62,18 +62,21 @@ You can extract resources by using the following approaches:<br />
 `featuresSurf= surf.extractionFeatures('img.jpg')`<br />
 `print('Surf --> ', featuresSurf)`<br />
 <br />
+
 - Zernike<br />
 `from extractor.zernike import Zernike`<br />
 `zernike = Zernike()`<br />
 `featuresZernike= zernike.extractionFeatures('img.jpg')`<br />
 `print('Zernike --> ', featuresZernike)`<br />
 <br />
+
 - Haralick <br />
 `from extractor.haralick import Haralick`<br />
 `haralick = Haralick()`<br />
 `featuresHaralick = haralick.extractionFeatures('img.jpg')`<br />
 `print('haralick --> ', featuresHaralick)`<br />
 <br />
+
 - FOM - First Order Measures (Gray) <br />
 `from extractor.fom import FOM`<br />
 `fom = FOM()`<br />
