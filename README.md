@@ -83,23 +83,27 @@ You can extract resources by using the following approaches:<br />
 `featuresFOM = fom.extractionFeatures('img.jpg')`<br />
 `print('FOM (Gray) --> ', featuresFOM)`<br />
 <br />
+
 - FOM - First Order Measures (Color)<br />
 `from extractor.fom import FOM`<br />
 `fom = FOM()`<br />
 `featuresFOM = fom.extractionFeaturesColor('img.jpg')`<br />
 `print('FOM (Color) --> ', featuresFOM)`<br />
 <br />
+
 - GCH - Global Color Histogram<br />
 `from extractor.gch import GCH`<br />
 `gch = GCH()`<br />
 `featuresGCH = gch.extractionFeatures('img.jpg')`<br />
 `print('GCH --> ', featuresGCH)`<br />
 <br />
+
 - Deep Features  <br />
 `from extractor.deep import Deep`<br />
 `deep = Deep('Xception')`<br />
 `featuresDeep = deep.extractionFeatures('img.jpg')`<br />
 `print(featuresDeep)`<br />
+
 Opition - DEEP:<br />
 --- Xception<br />
 --- VGG16<br />
