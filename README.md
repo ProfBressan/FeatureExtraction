@@ -51,9 +51,7 @@ You can extract resources by using the following approaches:<br />
 # Use desired code for extraction
 - LBP (Local Binary Part)<br />
 `from extractor.lbp import LBP`
-<br />
 `lbp = LBP()`
-<br />
 `featuresLBP = lbp.extractionFeatures('img.jpg')`
 <br />
 `print('LBP --> ', featuresLBP)`
