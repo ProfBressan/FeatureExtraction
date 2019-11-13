@@ -48,64 +48,56 @@ You can extract resources by using the following approaches:<br />
 - mahotas (1.4.8)
 - numpy (1.17.1)
 
-# Use desired code for extraction
+# Use desired code for extraction <br />
 - LBP (Local Binary Part)<br />
-`from extractor.lbp import LBP`
-`lbp = LBP()`
-`featuresLBP = lbp.extractionFeatures('img.jpg')`
+`from extractor.lbp import LBP`<br />
+`lbp = LBP()`<br />
+`featuresLBP = lbp.extractionFeatures('img.jpg')`<br />
+`print('LBP --> ', featuresLBP)`<br />
 <br />
-`print('LBP --> ', featuresLBP)`
-<br />
-<br />
-<br />
+
 - Surf<br />
-from extractor.surf import Surf<br />
-surf = Surf()<br />
-featuresSurf= surf.extractionFeatures('img.jpg')<br />
-print('Surf --> ', featuresSurf)<br />
-########### ########### ########### <br />
+`from extractor.surf import Surf`<br />
+`surf = Surf()`<br />
+`featuresSurf= surf.extractionFeatures('img.jpg')`<br />
+`print('Surf --> ', featuresSurf)`<br />
 <br />
-########### Zernike<br />
-from extractor.zernike import Zernike<br />
-zernike = Zernike()<br />
-featuresZernike= zernike.extractionFeatures('img.jpg')<br />
-print('Zernike --> ', featuresZernike)<br />
-########### ########### ########### <br />
+- Zernike<br />
+`from extractor.zernike import Zernike`<br />
+`zernike = Zernike()`<br />
+`featuresZernike= zernike.extractionFeatures('img.jpg')`<br />
+`print('Zernike --> ', featuresZernike)`<br />
 <br />
-########### Haralick <br />
-from extractor.haralick import Haralick<br />
-haralick = Haralick()<br />
-featuresHaralick = haralick.extractionFeatures('img.jpg')<br />
-print('haralick --> ', featuresHaralick)<br />
-########### ########### ###########  <br />
+- Haralick <br />
+`from extractor.haralick import Haralick`<br />
+`haralick = Haralick()`<br />
+`featuresHaralick = haralick.extractionFeatures('img.jpg')`<br />
+`print('haralick --> ', featuresHaralick)`<br />
 <br />
-########### FOM - First Order Measures (Gray)<br />
-from extractor.fom import FOM<br />
-fom = FOM()<br />
-featuresFOM = fom.extractionFeatures('img.jpg')<br />
-print('FOM (Gray) --> ', featuresFOM)<br />
-########### ########### ###########  <br />
+- FOM - First Order Measures (Gray) <br />
+`from extractor.fom import FOM`<br />
+`fom = FOM()`<br />
+`featuresFOM = fom.extractionFeatures('img.jpg')`<br />
+`print('FOM (Gray) --> ', featuresFOM)`<br />
 <br />
-########### FOM - First Order Measures (Color)<br />
-from extractor.fom import FOM<br />
-fom = FOM()<br />
-featuresFOM = fom.extractionFeaturesColor('img.jpg')<br />
-print('FOM (Color) --> ', featuresFOM)<br />
-########### ########### ###########  <br />
+- FOM - First Order Measures (Color)<br />
+`from extractor.fom import FOM`<br />
+`fom = FOM()`<br />
+`featuresFOM = fom.extractionFeaturesColor('img.jpg')`<br />
+`print('FOM (Color) --> ', featuresFOM)`<br />
 <br />
-########### GCH - Global Color Histogram<br />
-from extractor.gch import GCH<br />
-gch = GCH()<br />
-featuresGCH = gch.extractionFeatures('img.jpg')<br />
-print('GCH --> ', featuresGCH)<br />
-########### ########### ###########  <br />
+- GCH - Global Color Histogram<br />
+`from extractor.gch import GCH`<br />
+`gch = GCH()`<br />
+`featuresGCH = gch.extractionFeatures('img.jpg')`<br />
+`print('GCH --> ', featuresGCH)`<br />
 <br />
-########### Deep Features  <br />
-from extractor.deep import Deep<br />
-deep = Deep('Xception')<br />
-featuresDeep = deep.extractionFeatures('img.jpg')<br />
-print(featuresDeep)<br />
-####### Opition - DEEP:<br />
+- Deep Features  <br />
+`from extractor.deep import Deep`<br />
+`deep = Deep('Xception')`<br />
+`featuresDeep = deep.extractionFeatures('img.jpg')`<br />
+`print(featuresDeep)`<br />
+Opition - DEEP:<br />
 --- Xception<br />
 --- VGG16<br />
 --- VGG19 <br />
