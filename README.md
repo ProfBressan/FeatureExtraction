@@ -42,7 +42,6 @@ You can extract resources by using the following approaches:<br />
 # Requirements
 - Tests performed on Ubuntu 18.04.3 LTS with Python (3.6.8) 
 ## libraries
-- OpenCV (4.0.1)
 - Keras (2.3.1) 
 - TensorFlow (2.0.0)
 - mahotas (1.4.8)
