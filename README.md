@@ -37,7 +37,6 @@ You can extract resources by using the following approaches:<br />
 7. DEEP Transfer Learning
 - Extraction            : Depends on the approach. (512 to 4032 features)
 - Approach              : Xception | VGG16 | VGG19 | ResNet50 | ResNet101 | ResNet152 | ResNet50V2 | ResNet101V2 | ResNet152V2 | InceptionV3 | InceptionResNetV2 | MobileNet | MobileNetV2 | DenseNet121 | DenseNet169 | DenseNet201 | NASNetMobile | NASNetLarge 
-- Reference             :
 
 # Requirements
 - Tests performed on Ubuntu 18.04.3 LTS with Python (3.6.8) 
