@@ -175,3 +175,7 @@ python3 extractorFeatures.py -d dataset -m deep -n DenseNet201
 python3 extractorFeatures.py -d dataset -m deep -n NASNetMobile
 python3 extractorFeatures.py -d dataset -m deep -n NASNetLarge
 ```
+# Reference
+Bressan, R. S., Alves, D. H., Valerio, L. M., Bugatti, P. H., & Saito, P. T. (2018, June). DOCToR: the role of deep features in content-based mammographic image retrieval. In 2018 IEEE 31st International Symposium on Computer-Based Medical Systems (CBMS) (pp. 158-163). IEEE.
+
+
