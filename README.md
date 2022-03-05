@@ -150,7 +150,7 @@ Opition - DEEP:<br />
 
 # Extract from multiple simultaneous images and generate one file (.arff)
 
-1. Organize o conjunto de imagens
+1. Organize the image set
 
 - Orgnization dataset<br />
 -- Dir_dataset<br />
@@ -234,7 +234,7 @@ The generated files will be available in the (output_files) directory after the 
 - Observation.
 If desired, you can transform (.arff) to standard (csv) using the file (arff_to_csv.py)
 ```
-python3 arff_to_csv.py -d bic.arff
+python3 arff_to_csv.py -d output_files/bic.arff
 
 ```
 
