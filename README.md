@@ -234,7 +234,7 @@ The generated files will be available in the (output_files) directory after the 
 - Observation.
 If desired, you can transform (.arff) to standard (csv) using the file (arff_to_csv.py)
 ```
-python3 arff_to_csv.py -d bic.arff
+python3 arff_to_csv.py -d output_files/bic.arff
 
 ```
 
@@ -244,7 +244,7 @@ python3 arff_to_csv.py -d bic.arff
 ```
 import pandas as pd
 
-df = pd.read_csv('bic.csv')
+df = pd.read_csv('output_files/bic.csv')
 print(df.head())
 ...
 ```
@@ -253,7 +253,7 @@ print(df.head())
 ```
 from scipy.io.arff import loadarff
 import pandas as pd
-dataset, mdataset = loadarff("bic.arff")
+dataset, mdataset = loadarff("output_files/bic.arff")
 df = pd.DataFrame(dataset)
 print(df.head())
 ```
