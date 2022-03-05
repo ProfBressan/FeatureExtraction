@@ -150,7 +150,7 @@ Opition - DEEP:<br />
 
 # Extract from multiple simultaneous images and generate one file (.arff)
 
-1. Organize o conjunto de imagens
+1. Organize the image set
 
 - Orgnization dataset<br />
 -- Dir_dataset<br />
