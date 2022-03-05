@@ -1,22 +1,32 @@
 
 # -*- coding: utf-8 -*-
 """
-Author       : Rafael Staiger Bressan
+Author       : Rafael S. Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com / (43)99924-9391
+Contact      : https://www.linkedin.com/in/profbressan/ 
 
 Description  : Features Extraction - Zernike Moments
-dependencies : mahotas | OpenCV
+dependencies : mahotas | numpy | PIL
+References   :
+    ----------
+    Teague, MR. (1980). Image Analysis via the General Theory of Moments.  
+	J. Opt. Soc. Am. 70(8):920-930.
+
+Using        : 
+	from zernike import Zernike
+	zernike = Zernike() 
+	featuresZernike = zernike.extractionFeatures('img.jpg')
+	print('Zernike --> ', featuresZernike)
 """
 import mahotas as mt
 import numpy as np
 from PIL import Image
 
 class Zernike:
-	def __init__(self):
+	def __init__(self, radius = 15, degree = 8):
 		self.image_path = ''
-		self.radius = 15
-		self.degree = 8
+		self.radius = radius
+		self.degree = degree
 	def setImagePath(self, image_path):
 		self.image_path = image_path
 	def getImagePath(self):
@@ -24,10 +34,8 @@ class Zernike:
 	def extractionFeatures(self, image_path):
 		self.image_path = image_path
 		try:
-			img = Image.open(self.image_path)
-			imgRGB = img.convert('RGB')
-			imgGray = imgRGB.convert('L')
-			Features = mt.features.zernike(np.asanyarray(imgGray),self.radius,self.degree)
+			img = Image.open(self.image_path).convert('RGB').convert('L')
+			Features = mt.features.zernike(np.asanyarray(img),self.radius,self.degree)
 			return Features
 		except Exception as e:
-			print('\n################# (Zernike) - Error Reading Image!  #################\n', e ,'\n')
+			print('\n################# (Zernike) - Error in processing!  #################\n', e ,'\n')

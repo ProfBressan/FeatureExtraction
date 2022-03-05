@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Author       : Rafael Staiger Bressan
+Author       : Rafael S. Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com 
+Contact      : https://www.linkedin.com/in/profbressan/ 
 
 Description  : Features Extraction - FOM (First Order Measures)
 Dependencies : PIL (Python Imaging Library) | math | os | sys | statistics
@@ -23,7 +23,7 @@ import math, os, sys, statistics
 
 class FOM:
     def __init__(self):
-	    self.image_path = ''
+        self.image_path = ''
     def setImagePath(self, image_path):
         self.image_path = image_path
     def getImagePath(self):
@@ -62,7 +62,7 @@ class FOM:
             #features.append(statistics.median_low(v)) # Low median of data.
             return features
         except Exception as e:
-            print('\n################# (LBP) - Error Reading Image!  #################\n', e)
+            print('\n################# (FOM) - Error in processing! #################\n', e)
     
     def extractionFeaturesColor(self, image_path):
         self.image_path = image_path
@@ -112,4 +112,4 @@ class FOM:
             #features.append(statistics.median_low(vr)) , features.append(statistics.median_low(vg)), features.append(statistics.median_low(vb)) 
             return features
         except Exception as e:
-            print('\n################# (LBP) - Error Reading Image!  #################\n', e)
+            print('\n################# (FOMC) - Error in processing!  #################\n', e)

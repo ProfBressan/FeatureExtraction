@@ -2,7 +2,6 @@ import argparse
 import glob 
 import os
 import re
-import cv2 
 import argparse
 import numpy
 import extraction
@@ -73,7 +72,7 @@ args = vars(ap.parse_args())
 directoryImagesIn = args["dataset"]
 method = args["method"]
 listClass = []
-arqOrder = open('OrderOfImages.txt', 'w')
+arqOrder = open('output_files/OrderOfImages.txt', 'w')
 loadsClasses(directoryImagesIn)
 nameClasses = set(listClass)
 arqOrder.close()
@@ -85,52 +84,59 @@ else:
     systemT = 'Linux '
 
 print('\n#################### ', method, ' ####################\n' )
-if (method == 'lbp'):
+
+directoryImagesOut = "output_files/"
+if (deepName != None):
+    directoryImagesOut += "deep_"+str(deepName)+".arff"
+elif (method != None):
+    directoryImagesOut += str(method)+".arff"
+arq = open(directoryImagesOut, 'w')
+
+if (method == 'tas'):
+    from extraction.tas import TAS
+    extractor = TAS()
+    header(162)
+    extract(directoryImagesIn)
+    finish()
+elif (method == 'bic'):
+    from extraction.bic import BIC
+    extractor = BIC(64)
+    header(128)
+    extract(directoryImagesIn)
+    finish()
+elif (method == 'lbp'):
     from extraction.lbp import LBP
     extractor = LBP()
-    arq = open('lbp.arff', 'w')
     header(352)
     extract(directoryImagesIn)
     finish()
 elif (method == 'fom'):
     from extraction.fom import FOM
     extractor = FOM()
-    arq = open('fom.arff', 'w')
     header(8)
     extract(directoryImagesIn)
     finish()
 elif (method == 'fomc'):
     from extraction.fom import FOM
     extractor = FOM()
-    arq = open('fomc.arff', 'w')
     header(24)
-    extract(directoryImagesIn)
-    finish()
-elif (method == 'surf'):
-    from extraction.surf import Surf
-    extractor = Surf()
-    arq = open('surf.arff', 'w')
-    header(70)
     extract(directoryImagesIn)
     finish()
 elif (method == 'zernike'):
     from extraction.zernike import Zernike
     extractor = Zernike()
-    arq = open('zernike.arff', 'w')
     header(72)
     extract(directoryImagesIn)
     finish()
 elif (method == 'haralick'):
     from extraction.haralick import Haralick
     extractor = Haralick()
-    arq = open('haralick.arff', 'w')
     header(13)
     extract(directoryImagesIn)
     finish()
 elif (method == 'gch'):
     from extraction.gch import GCH
     extractor = GCH()
-    arq = open('GCH.arff', 'w')
     header(30)
     extract(directoryImagesIn)
     finish()
@@ -139,17 +145,44 @@ elif (method == 'deep'):
     from extraction.deep import Deep
     method = method + '_'+ deepName
     extractor = Deep(deepName)
-    arq = open('deep_'+deepName+'.arff', 'w')
     if (deepName == 'VGG16' or deepName == 'VGG19'):
         header(512) 
-    elif (deepName == 'Xception' or deepName == 'ResNet50' or deepName == 'ResNet50V2'or deepName == 'ResNet101' or deepName == 'ResNet152' or deepName == 'ResNet101V2' or deepName == 'ResNet152V2' or deepName == 'InceptionV3'):
+    elif (deepName == 'Xception' or 
+          deepName == 'ResNet50' or 
+          deepName == 'ResNet50V2' or 
+          deepName == 'ResNet101' or 
+          deepName == 'ResNet152' or 
+          deepName == 'ResNet101V2' or 
+          deepName == 'ResNet152V2' or 
+          deepName == 'InceptionV3' or 
+          deepName == 'EfficientNetB5'):
         header(2048)
-    elif (deepName == 'InceptionResNetV2'):
+    elif (deepName == 'InceptionResNetV2' or 
+          deepName == 'EfficientNetV2B3' or 
+          deepName == 'EfficientNetB3'):
         header(1536)
-    elif (deepName == 'MobileNet' or deepName == 'DenseNet121'):
+    elif (deepName == 'MobileNet' or 
+          deepName == 'DenseNet121'):
         header(1024)
-    elif (deepName == 'MobileNetV2'):
+
+    elif (deepName == 'MobileNetV2'  or 
+          deepName == 'EfficientNetB0' or
+          deepName == 'EfficientNetB1' or
+          deepName == 'EfficientNetV2B0' or 
+          deepName == 'EfficientNetV2B1' or 
+          deepName == 'EfficientNetV2L' or 
+          deepName == 'EfficientNetV2M' or 
+          deepName == 'EfficientNetV2S' ):
         header(1280)
+    elif (deepName == 'EfficientNetB4'):
+        header(1792)
+    elif (deepName == 'EfficientNetB6'):
+        header(2304)
+    elif (deepName == 'EfficientNetB7'):
+        header(2560)
+    elif (deepName == 'EfficientNetV2B2' or
+          deepName == 'EfficientNetB2'):
+        header(1408)
     elif (deepName == 'DenseNet169'):
         header(1664)
     elif (deepName == 'DenseNet201'):

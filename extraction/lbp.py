@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Author       : Rafael Staiger Bressan
+Author       : Rafael S. Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com 
+Contact      : https://www.linkedin.com/in/profbressan/ 
 
 Description  : Features Extraction - LBP (Local Binary Part)
-Dependencies : mahotas | OpenCV
+Dependencies : mahotas |  PIL (Python Imaging Library) | numpy
 Configuration: radius = 2 | n_points = 12 --> features = 352
 References   :
     ----------
@@ -24,10 +24,9 @@ from PIL import Image
 import numpy as np
 
 class LBP:
-	def __init__(self):
-		# settings for LBP
-		self.radius = 2
-		self.n_points = 12
+	def __init__(self, radius = 2, n_points = 12 ):
+		self.radius = radius
+		self.n_points = n_points
 		self.image_path = ""
 	def setRadius(self, radius):
 		if (radius>0 and radius<5):
@@ -46,10 +45,8 @@ class LBP:
 	def extractionFeatures(self, image_path):
 		self.image_path = image_path
 		try:
-			img = Image.open(self.image_path)
-			imgRGB = img.convert('RGB')
-			imgGray = imgRGB.convert('L')
-			arrayFeatures = lbp(np.asanyarray(imgGray), self.radius, self.n_points)
+			img = Image.open(self.image_path).convert('RGB').convert('L')
+			arrayFeatures = lbp(np.asanyarray(img), self.radius, self.n_points)
 			return arrayFeatures
 		except Exception as e:
-			print('\n################# (LBP) - Error Reading Image!  #################\n', e)
+			print('\n################# (LBP) - Error in processing!  #################\n', e)

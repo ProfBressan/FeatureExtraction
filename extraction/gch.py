@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Author       : Rafael Staiger Bressan
+Author       : Rafael S. Bressan
 Date         : 31/10/2019
-Contact      : profbressan@gmail.com 
+Contact      : https://www.linkedin.com/in/profbressan/ 
 
 Description  : Features Extraction - GCH (Global Color Histogram)
 Dependencies : PIL (Python Imaging Library) 
@@ -14,15 +14,16 @@ Reference    :
 
 Using        : 
 	from gch import GCH
-	fom = GCH()
+	gch = GCH() # --> default GCH(10) # 10 bins per channel
 	featuresGCH = gch.extractionFeatures('img.jpg')
 	print('GCH --> ', featuresGCH)
 """
 from PIL import Image
 
 class GCH:
-    def __init__(self):
-	    self.image_path = ''
+    def __init__(self, bins = 10):
+        self.image_path = ''
+        self.bins = bins
     def setImagePath(self, image_path):
         self.image_path = image_path
     def getImagePath(self):
@@ -30,12 +31,10 @@ class GCH:
     def extractionFeatures(self, image_path):
         self.image_path = image_path
         try:
-            imgIN = Image.open(self.image_path) 
-            img = imgIN.convert('RGB')
-            bins = 10 # bins per (channel)
-            evolution = (255/bins)
+            img = Image.open(self.image_path).convert('RGB')
+            evolution = (255/self.bins)
             features = []
-            histR,histG,histB  = [0] * bins, [0] * bins, [0] * bins
+            histR,histG,histB  = [0] * self.bins, [0] * self.bins, [0] * self.bins
             for i in range(img.size[0]):
                 for j in range(img.size[1]):
                     r, g, b = img.getpixel((i,j))
@@ -78,7 +77,6 @@ class GCH:
                     histB[contB-1] += 1
             
             features = histR + histG + histB
-            #print('Size --> ', len(features))
             return features
         except Exception as e:
-            print('\n################# (LBP) - Error Reading Image!  #################\n', e)
+            print('\n################# (LBP) - Error in processing! #################\n', e)
